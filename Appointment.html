@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 30px;
+            padding: 0;
+            direction: ltr;
+        }
+
+        /* Navigation bar styling */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        li {
+            display: inline;
+            color: black;
+        }
+
+        a {
+            display: block;
+            padding: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .calendar {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 60px; /* Adjusted margin to avoid overlap with the navbar */
+        }
+
+        .day {
+            display: inline-block;
+            width: 14.2857%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .day:hover {
+            background-color: #e6e6e6;
+        }
+
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .appointment-form {
+            margin-top: 20px;
+        }
+
+        .appointment-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .confirmation-message {
+            display: none;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <ul>
+        <li><a href="hair.html" style="color: black;">Back</a></li>
+    </ul><br><br>
+
+    <div class="calendar" id="calendar"></div>
+    <div class="appointment-form" id="appointmentForm">
+        <h2>Book an Appointment</h2>
+        <label for="selectedDate">Selected Date:</label>
+        <input type="text" id="selectedDate" readonly>
+        <button onclick="bookAppointment()">Book Appointment</button>
+        <div class="confirmation-message" id="confirmationMessage">Successfully booked! Looking forward to seeing you.</div>
+    </div>
+
+    <script>
+        // Sample data for booked appointments
+        const bookedAppointments = {};
+
+        // Generate the calendar dynamically
+        function generateCalendar() {
+            const calendarDiv = document.getElementById('calendar');
+            const currentDate = new Date(2023, 11, 1); // December 2023
+            const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+                dayDiv.textContent = day;
+                dayDiv.setAttribute('data-date', dateStr);
+
+                if (!bookedAppointments[dateStr]) {
+                    dayDiv.addEventListener('click', selectDate);
+                }
+
+                calendarDiv.appendChild(dayDiv);
+            }
+        }
+
+        // Update the selected date in the form
+        function selectDate(event) {
+            const selectedDate = event.target.getAttribute('data-date');
+            document.getElementById('selectedDate').value = selectedDate;
+
+            // Highlight the selected date
+            const days = document.querySelectorAll('.day');
+            days.forEach(day => day.classList.remove('selected'));
+            event.target.classList.add('selected');
+
+            // Display the confirmation message
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.style.display = 'block';
+
+            // Hide the confirmation message after a few seconds (adjust the timeout as needed)
+            setTimeout(() => {
+                confirmationMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // Handle the booking logic
+        function bookAppointment() {
+            // Here you can add more booking logic if needed
+            alert('Booking logic goes here.');
+        }
+
+        // Generate the initial calendar on page load
+        generateCalendar();
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

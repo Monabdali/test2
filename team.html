@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="teamstyle.css">
+    <style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .employee-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .employee-card {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .star {
+            color: #ddd;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .star.active {
+            color: gold;
+        }
+
+        .total-rating {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .employee-card {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // JavaScript function to handle dynamic star ratings and calculate total rating
+        function rateEmployee(employeeId, starNumber) {
+            // Remove 'active' class from all stars in the same rating div
+            const stars = document.querySelectorAll(#employee${employeeId} .star);
+            stars.forEach(star => star.classList.remove('active'));
+
+            // Add 'active' class to stars up to the clicked star
+            for (let i = 0; i < starNumber; i++) {
+                stars[i].classList.add('active');
+            }
+
+            // Calculate total rating
+            const totalRating = Array.from(stars).filter(star => star.classList.contains('active')).length;
+
+            // Update total rating display
+            const totalRatingDisplay = document.getElementById(totalRating${employeeId});
+            totalRatingDisplay.textContent = Total Rating: ${totalRating};
+
+            // You can send the rating data to a server for further processing/storage
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <ul>
+        <li><a href="index.html" onclick="toggleCard()">Home</a></li>
+        <li><a href="team.html" onclick="toggleCard()">OurTeam</a></li>
+        <li><a href="store.html" onclick="toggleCard()">Store</a></li>
+        <li><a href="us.html" onclick="toggleCard()">Us</a></li>
+        <li style="float:right"><a href="sign.html" onclick="toggleCard()">sign in</a></li>
+    </ul><br><br>
+    <h1>Rate Our Team</h1>
+
+    <div class="employee-container">
+        <div class="employee-card" id="employee1">
+            <h2>Raghad</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(1, 1)">★</span>
+                <span class="star" onclick="rateEmployee(1, 2)">★</span>
+                <span class="star" onclick="rateEmployee(1, 3)">★</span>
+                <span class="star" onclick="rateEmployee(1, 4)">★</span>
+                <span class="star" onclick="rateEmployee(1, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating1">Total Rating: 0</div>
+        </div>
+
+        <!-- Repeat the above employee card block for employees 2 through 8 -->
+        <!-- Adjust the employee number, id, and onclick function for each employee -->
+
+        <!-- Employee 2 -->
+        <div class="employee-card" id="employee2">
+            <h2>Mona</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(2, 1)">★</span>
+                <span class="star" onclick="rateEmployee(2, 2)">★</span>
+                <span class="star" onclick="rateEmployee(2, 3)">★</span>
+                <span class="star" onclick="rateEmployee(2, 4)">★</span>
+                <span class="star" onclick="rateEmployee(2, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating2">Total Rating: 0</div>
+        </div>
+
+        <!-- Repeat the above employee card block for employees 3 through 8 -->
+        <!-- Adjust the employee number, id, and onclick function for each employee -->
+
+        <!-- Employee 3 -->
+        <div class="employee-card" id="employee3">
+            <h2>Shahad</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(3, 1)">★</span>
+                <span class="star" onclick="rateEmployee(3, 2)">★</span>
+                <span class="star" onclick="rateEmployee(3, 3)">★</span>
+                <span class="star" onclick="rateEmployee(3, 4)">★</span>
+                <span class="star" onclick="rateEmployee(3, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating3">Total Rating: 0</div>
+        </div>
+
+        <!-- Repeat the above employee card block for employees 4 through 8 -->
+        <!-- Adjust the employee number, id, and onclick function for each employee -->
+
+        <!-- Employee 4 -->
+        <div class="employee-card" id="employee4">
+            <h2>Ggady</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(4, 1)">★</span>
+                <span class="star" onclick="rateEmployee(4, 2)">★</span>
+                <span class="star" onclick="rateEmployee(4, 3)">★</span>
+                <span class="star" onclick="rateEmployee(4, 4)">★</span>
+                <span class="star" onclick="rateEmployee(4, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating4">Total Rating: 0</div>
+        </div>
+
+        <!-- Repeat the above employee card block for employees 5 through 8 -->
+        <!-- Adjust the employee number, id, and onclick function for each employee -->
+
+        <!-- Employee 5 -->
+        <div class="employee-card" id="employee5">
+            <h2>Arwa</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(5, 1)">★</span>
+                <span class="star" onclick="rateEmployee(5, 2)">★</span>
+                <span class="star" onclick="rateEmployee(5, 3)">★</span>
+                <span class="star" onclick="rateEmployee(5, 4)">★</span>
+                <span class="star" onclick="rateEmployee(5, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating5">Total Rating: 0</div>
+        </div>
+
+        <!-- Employee 6 -->
+        <div class="employee-card" id="employee6">
+            <h2>manal</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(6, 1)">★</span>
+                <span class="star" onclick="rateEmployee(6, 2)">★</span>
+                <span class="star" onclick="rateEmployee(6, 3)">★</span>
+                <span class="star" onclick="rateEmployee(6, 4)">★</span>
+                <span class="star" onclick="rateEmployee(6, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating6">Total Rating: 0</div>
+        </div>
+
+        <!-- Employee 7 -->
+        <div class="employee-card" id="employee7">
+            <h2>jood</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(7, 1)">★</span>
+                <span class="star" onclick="rateEmployee(7, 2)">★</span>
+                <span class="star" onclick="rateEmployee(7, 3)">★</span>
+                <span class="star" onclick="rateEmployee(7, 4)">★</span>
+                <span class="star" onclick="rateEmployee(7, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating7">Total Rating: 0</div>
+        </div>
+
+        <!-- Employee 8 -->
+        <div class="employee-card" id="employee8">
+            <h2>maha</h2>
+            <div class="rating">
+                <span class="star" onclick="rateEmployee(8, 1)">★</span>
+                <span class="star" onclick="rateEmployee(8, 2)">★</span>
+                <span class="star" onclick="rateEmployee(8, 3)">★</span>
+                <span class="star" onclick="rateEmployee(8, 4)">★</span>
+                <span class="star" onclick="rateEmployee(8, 5)">★</span>
+            </div>
+            <div class="total-rating" id="totalRating8">Total Rating: 0</div>
+        </div>
+    </div>
+
+</body>
+</html>

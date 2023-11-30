@@ -1,0 +1,64 @@
+h3 { algin: center; }
+
+ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: 40px;
+  align-items: center;
+}
+
+li {
+  display: inline;
+  left: 30;
+  color: white ;
+}
+
+ul a {
+  display: block;
+  padding: 15px;
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Add a smooth transition for a smoother hover effect */
+}
+
+ul a:hover {
+  background-color: white;
+  border-radius: 30px;
+  color: black;
+}
+
+ul .active a {
+  background-color: #9C8FBA;
+  color: black;
+}
+
+.GroupNames{
+    text-align: center;
+    font-size: 50px;
+    text-shadow:2px 4px 3px rgb(156, 127, 144);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+  
+  div{ 
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin: auto;
+  text-shadow:2px 4px 3px rgb(156, 127, 144);
+
+  }
+
+  body{
+    background-color: white;
+    font-family: 'Arial';
+    }

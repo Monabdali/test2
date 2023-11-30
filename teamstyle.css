@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+  padding: 0;
+  font-family: 'Alex Brush', cursive;
+  background: #fdf5e6;
+}
+
+h1 {
+    text-align: center;
+    color: #cc6600; /* Warm color for the heading */
+}
+
+.employee-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Navigation bar styling */
+ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  font-family: 'Arial';
+  display: flex;
+  justify-content: 40px;
+  align-items: center;
+}
+
+
+li {
+  display: inline;
+  left: 30;
+  color: black ;
+}
+
+a {
+  display: block;
+  padding: 15px;
+  color: black;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s; /* Add a smooth transition for a smoother hover effect */
+}
+
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+.employee-card {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0 /* Moccasin */
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.star {
+    color: #8b4513; /* SaddleBrown */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star.active {
+    color: #cd853f; /* Peru */
+}
+
+.total-rating {
+    text-align: center;
+    margin-top: 10px;
+    color: #666; /* Color for the total rating text */
+}
+
+@media screen and (max-width: 600px) {
+    .employee-card {
+        width: 100%;
+    }
+}

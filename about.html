@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="aboutstyle.css">
+    <title>OURTEAM</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <ul>
+        <li><a href="index.html" onclick="toggleCard()">Home</a></li>
+        <li><a href="team.html" onclick="toggleCard()">OurTeam</a></li>
+        <li><a href="store.html" onclick="toggleCard()">Store</a></li>
+        <li><a href="about.html" onclick="toggleCard()">Us</a></li>
+        <li style="float:right"><a href="sign.html" onclick="toggleCard()">sign in</a></li>
+    </ul>
+
+     <h3 class="GroupNames"><i class="bi bi-people-fill"></i>Project Team</h3>
+     <div id="nameContainer"></div>
+
+      <script>
+ let teamMembers = [
+  'Ghadi Alshamrani | Us page - Hair&Body pages  - ui designing',
+  'Mona Abdali | Home&sign in - booking calender - project managing ',
+  'Raghad Alghamdi | Store page - OurTeam ',
+  'Shahad Alamri | Nails page + shopping cart ',
+];
+
+teamMembers.sort(() => Math. random ( ) - 0.5);
+nameContainer = document. getElementById( 'nameContainer');
+teamMembers. forEach(member => {
+const memberElement = document. createElement ('p');
+memberElement. textContent = member;
+nameContainer.appendChild(memberElement);
+});
+
+</script>
+
+
+</body>
+</html>
